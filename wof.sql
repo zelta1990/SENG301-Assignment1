@@ -1,0 +1,26 @@
+CREATE TABLE OWNER
+(EMAIL /* Email address */VARCHAR(30) NOT NULL PRIMARY KEY,
+LNAME /* Last name */ VARCHAR(16) NOT NULL,
+FNAME /* First name */ VARCHAR(15),
+PWORD /* Password */VARCHAR(30) NOT NULL);
+
+INSERT INTO OWNER(EMAIL, LNAME, FNAME, PWORD) VALUES ("kelly@gmail.com","kong", "kelly", "1234567");
+
+CREATE TABLE VEHICLE
+(PLATE /* Unique number for a vehicle */ TEXT NOT NULL PRIMARY KEY,
+VTYPE /* vehicle type */ VARCHAR(16) not null,
+FTYPE /* fuel type */ VARCHAR(15),
+MDATE /* manufacture date */ DATE,
+MODEL /* name of model */ VARCHAR(16),
+MAKE/* make of the vehicle */ VARCHAR(16),
+OWNERID/*FOREIGN KEY*/ VARCHAR(30),
+CONSTRAINT FK_OwnerVehicle FOREIGN KEY (OWNERID) REFERENCES OWNER(EMAIL));
+
+INSERT INTO VEHICLE(PLATE, VTYPE, FTYPE,MDATE,MODEL,MAKE,OWNERID) VALUES ("UPI123","MA","PETROL","1990-08-07","TOYOTA","RAV4","jelly@gmail.com");
+
+
+
+
+
+
+
